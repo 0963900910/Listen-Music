@@ -9,13 +9,15 @@
 
 
     <ImageButton
+        android:background="?attr/selectableItemBackgroundBorderless"
         android:id="@+id/imageBack"
         android:layout_width="80dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="220dp"
         android:layout_marginBottom="8dp"
-        android:src="@drawable/play"
+        android:src="@drawable/ic_rewind"
+        android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imagePlay"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,19 +27,24 @@
         tools:ignore="MissingConstraints" />
 
     <ImageButton
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
         android:id="@+id/imagePlay"
         android:layout_width="80dp"
         android:layout_height="68dp"
         android:layout_marginStart="8dp"
+
         android:layout_marginTop="220dp"
         app:layout_constraintEnd_toStartOf="@+id/imageNext"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageBack"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/play"
+        app:srcCompat="@drawable/ic_play_button"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitXY"
         android:id="@+id/imageNext"
         android:layout_width="80dp"
         android:layout_height="68dp"
@@ -51,11 +58,11 @@
         app:layout_constraintStart_toEndOf="@+id/imagePlay"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/play"
+        app:srcCompat="@drawable/ic_fast_forward"
         tools:ignore="MissingConstraints" />
 
     <android.support.v7.widget.AppCompatSeekBar
-        android:id="@+id/BarSeek"
+        android:id="@+id/SeekBarMusic"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -66,7 +73,7 @@
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
-        android:id="@+id/txtCurrentTime"
+        android:id="@+id/textview_CurrentTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -76,7 +83,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtTotalTime"
+        android:id="@+id/textview_TotalTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

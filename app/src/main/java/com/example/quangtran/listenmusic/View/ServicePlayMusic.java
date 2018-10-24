@@ -11,29 +11,27 @@ import android.widget.Toast;
 
 import com.example.quangtran.listenmusic.R;
 
-public class ServicePlayMusic extends Service{
+public class ServicePlayMusic extends IntentService{
+    private static final String TAG = "ServicePlayMusic";
     MediaPlayer mediaPlayer;
     private static int[] mRawID = {R.raw.songone, R.raw.songtwo, R.raw.songthree};
+    public ServicePlayMusic() {
+        super(TAG);
+    }
+
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    protected void onHandleIntent(@Nullable Intent intent) {
         Bundle bundle = intent.getExtras();
-        int current = bundle.getInt("currentIndexSong");
-        PlaySong(current);
-        Toast.makeText(this, current + " ", Toast.LENGTH_SHORT).show();
-        return flags;
+        int current = bundle.getInt("currentTime");
+        int total = bundle.getInt("totalTime");
+        int index = bundle.getInt("idTrack");
+        PlaySong(index,current,total);
     }
 
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    private void PlaySong(int IDTrack) {
+    private void PlaySong(int IDTrack,int Current,int Total) {
         //mediaPlayer.reset();
         mediaPlayer = MediaPlayer.create(this, mRawID[IDTrack]);
+        mediaPlayer.seekTo(Current + 1000);
         mediaPlayer.start();
     }
-
-
 }
